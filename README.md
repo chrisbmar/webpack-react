@@ -1,37 +1,29 @@
-# webpack-setup
+# Webpack and React setup
 
-Empty project.
+A base file structure with an eslint and prettier config. The webpack config has been adjusted to work with scss modules. Husky is used as a pre-commit hook. Assets are loaded by the url-loader depending on their size, fallback option uses file-loader.
 
 ## Building and running on localhost
 
 First install dependencies:
 
 ```sh
-npm install
+yarn install
 ```
 
 To run in hot module reloading mode:
 
 ```sh
-npm start
+yarn dev
 ```
 
 To create a production build:
 
 ```sh
-npm run build-prod
+yarn build-prod
 ```
 
 To create a development build:
 
 ```sh
-npm run build-dev
+yarn build-dev
 ```
-
-## Running
-
-Open the file `dist/index.html` in your browser
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
