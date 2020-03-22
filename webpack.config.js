@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 
 const config = {
@@ -15,19 +14,33 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.module\.s(a|c)ss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader",
+        ],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".scss"],
     alias: {
       "react-dom": "@hot-loader/react-dom",
     },
   },
   devServer: {
     contentBase: "./dist",
+    port: 4000,
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
   },
 };
 
