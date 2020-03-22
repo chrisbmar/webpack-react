@@ -7,10 +7,24 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "dev": "webpack-dev-server --hot --mode development",
+    "lint": "eslint '**/*.{js,jsx}' --max-warnings 20",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write '*.js' 'src/**/*.js'",
+    "format": "yarn prettier",
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development",
-    "build-prod": "webpack -p --mode production",
-    "start": "webpack-dev-server --hot --mode development"
+    "build-prod": "webpack -p --mode production"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn format"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "react": "^16.13.1",
