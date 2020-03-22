@@ -14,13 +14,15 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.module\.s(a|c)ss$/,
+        test: /\.s(a|c)ss$/,
         use: [
           "style-loader",
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                localIdentName: "[local]__[hash:base64:5]",
+              },
             },
           },
           "sass-loader",
